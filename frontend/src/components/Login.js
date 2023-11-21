@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import './Login.css'
 import {useNavigate} from 'react-router-dom';
 // import { useUser } from "../UserContext";
-
+const url = "http://77.243.80.52";
 export default function (props) {
 
   // const {setUserRole} = useUser();
@@ -17,7 +17,7 @@ export default function (props) {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/login/", {
+      const response = await fetch(`${url}/login/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export default function (props) {
         const {access, refresh} = data;
         
         try {
-          const user_info_response = await fetch("http://127.0.0.1:8000/api/user_info/", {
+          const user_info_response = await fetch(`${url}/api/user_info/`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${access}`,
