@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'; 
 import {useNavigate} from 'react-router-dom';
 // import MakeAppointment from './MakeAppointment';
-
+const url = "http://77.243.80.52";
 export default function JobList() {
   const [jobs, setJobs] = useState([]);
   const [selectedCreateJob, setSelectedCreateJob] = useState(false);
@@ -15,7 +15,7 @@ export default function JobList() {
   const fetchData = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch("http://127.0.0.1:8000/api/my_posted_jobs/", {
+      const response = await fetch(`${url}/api/my_posted_jobs/`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`, 
@@ -94,7 +94,7 @@ function CreateJob({setSelectedCreateJob}) {
         event.preventDefault();
         const token = localStorage.getItem('token')
         try { 
-            const response = await fetch("http://127.0.0.1:8000/jobs/", {
+            const response = await fetch(`${url}/jobs/`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
