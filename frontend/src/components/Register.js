@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import {useNavigate} from 'react-router-dom';
 import './Login.css'
-
+const url = "http://77.243.80.52";
 export default function (props) {
   let [authMode, setAuthMode] = useState("member")
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function (props) {
 
   const handleSubmitMember = async (event) => {
     event.preventDefault();
-    const response = await fetch("http://127.0.0.1:8000/register_member/", {
+    const response = await fetch(`${url}/register_member/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export default function (props) {
 
   const handleSubmitCaregiver = async (event) => {
     event.preventDefault();
-    const response = await fetch("http://127.0.0.1:8000/register_caregiver/", {
+    const response = await fetch(`${url}/register_caregiver/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
