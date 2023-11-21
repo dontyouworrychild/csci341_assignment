@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Form from 'react-bootstrap/Form'; 
 import Button from 'react-bootstrap/Button'; 
 // import MakeAppointment from './MakeAppointment';
-
+const url = "http://77.243.80.52";
 export default function JobList() {
   const [jobs, setJobs] = useState([]);
   const [selectedApply, setSelectedApply] = useState(false);
@@ -20,7 +20,7 @@ export default function JobList() {
   const handleApply = async (job) => {
     try {
         const token = localStorage.getItem('token')
-        const response = await fetch("http://127.0.0.1:8000/job_applications/", {
+        const response = await fetch(`${url}/job_applications/`, {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ export default function JobList() {
   const fetchData = async () => {
     try {
     const token = localStorage.getItem('token')
-      const response = await fetch("http://127.0.0.1:8000/api/all_jobs/", {
+      const response = await fetch(`${url}/api/all_jobs/`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`,
