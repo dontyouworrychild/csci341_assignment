@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Button } from 'react-bootstrap';
 // import MakeAppointment from './MakeAppointment';
 
+const url = "http://77.243.80.52";
 export default function AppointmentList() {
   const [appointments, setAppointments] = useState([]);
   const [update, setUpdate] = useState(false);
@@ -22,7 +23,7 @@ export default function AppointmentList() {
   const handleReply = async ({id, status_answer}) => {
     try {
         const token = localStorage.getItem('token')
-        const response = await fetch(`http://127.0.0.1:8000/appointments/${id}/`, {
+        const response = await fetch(`${url}/appointments/${id}/`, {
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -45,7 +46,7 @@ export default function AppointmentList() {
   const fetchData = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch("http://127.0.0.1:8000/api/my_appointments/", {
+      const response = await fetch(`${url}/api/my_appointments/`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`, 
