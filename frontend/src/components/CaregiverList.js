@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Form from 'react-bootstrap/Form'; 
 import Button from 'react-bootstrap/Button'; 
 // import MakeAppointment from './MakeAppointment';
-
+const url = "http://77.243.80.52";
 export default function AppointmentList() {
   const [caregivers, setCaregivers] = useState([]);
   const [madeAppointment, setMadeAppointment] = useState([]);
@@ -18,7 +18,7 @@ export default function AppointmentList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/caregivers/", {
+      const response = await fetch(`${url}/caregivers/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ function MakeAppointment({caregiver, setSelectedCaregiver}) {
         event.preventDefault();
         const token = localStorage.getItem('token');
         try { 
-            const response = await fetch("http://127.0.0.1:8000/appointments/", {
+            const response = await fetch(`${url}/appointments/`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
