@@ -2,8 +2,10 @@
 import React, { useState } from "react"
 import {useNavigate} from 'react-router-dom';
 import './Login.css'
-const url = "http://77.243.80.52";
+const url = "http://77.243.80.52:8000";
+
 export default function (props) {
+
   let [authMode, setAuthMode] = useState("member")
   const navigate = useNavigate();
 

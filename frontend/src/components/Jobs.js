@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'; 
 import {useNavigate} from 'react-router-dom';
 // import MakeAppointment from './MakeAppointment';
-const url = "http://77.243.80.52";
+const url = "http://77.243.80.52:8000";
 export default function JobList() {
   const [jobs, setJobs] = useState([]);
   const [selectedCreateJob, setSelectedCreateJob] = useState(false);
