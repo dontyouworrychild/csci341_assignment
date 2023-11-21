@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './CaregiverList.css'
 import 'bootstrap/dist/css/bootstrap.css'; 
 // import MakeAppointment from './MakeAppointment';
-
+const url = "http://77.243.80.52";
 export default function AppointmentList() {
   const [appointments, setAppointments] = useState([]);
   
@@ -20,7 +20,7 @@ export default function AppointmentList() {
   const fetchData = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch("http://127.0.0.1:8000/api/my_appointments/", {
+      const response = await fetch(`${url}/api/my_appointments/`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`, 
