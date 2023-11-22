@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Form from 'react-bootstrap/Form'; 
 import Button from 'react-bootstrap/Button'; 
 // import MakeAppointment from './MakeAppointment';
-const url = "http://77.243.80.52:8000";
+const url = "http://77.243.80.52:8001";
 export default function AppointmentList() {
   const [jobApplications, setJobApplications] = useState([]);
 
